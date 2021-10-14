@@ -1,10 +1,6 @@
 const express = require('express');
-// const axios = require('axios');
+const axios = require('axios');
 const path = require('path');
-
-// const AUTH_TOKEN = require('../config/config');
-// axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo';
-// axios.defaults.headers.common.Authorization = AUTH_TOKEN;
 
 const app = express();
 const port = 3000;
@@ -24,6 +20,16 @@ app.use((req, res, next) => {
   console.log('-----------------------------');
   next();
 });
+
+app.get('/json', (req, res) => {
+  axios.get('https://maps.googleapis.com/maps/api/place/textsearch' + req.url)
+    .then((response) => {
+      res.status(200).send(response.data);
+    })
+    .catch((error) => {
+      res.status(500).send('error in getting locations', err);
+    })
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
