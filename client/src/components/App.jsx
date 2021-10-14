@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Map from './map/Map.jsx';
 import Buttons from './buttons/Buttons.jsx';
+import '../../../public/style.css';
 
 const App = () => {
   const [coordinates, setCoordinates] = useState({
@@ -25,7 +26,9 @@ const App = () => {
   useEffect(getCoordinates, []);
 
   return (
-    <div className="App">
+    <div id="app">
+      <h1>Gym Buddy</h1>
+      <p>Find gyms near you, get started by clicking one of the buttons</p>
       <Buttons toggle={changeGym}/>
       <Map coordinates={coordinates} gym={gym}/>
     </div>
