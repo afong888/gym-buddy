@@ -1,22 +1,19 @@
 @font-face {
   font-family: 'Workout';
-  src: url("./fonts/SportageDemo-DO0A1.otf") format("opentype");
+  src: url("./fonts/Granite-Bgvl.ttf") format("truetype");
 }
 
-body {
+body, html {
   font-family: 'Workout';
+  background-color: #2C3E50;
   color: white;
-  margin: 0px;
-  font-size: 3em;
+  height: 100%;
 }
 
 h1 {
   font-size: 4em;
-  margin-bottom: -50px;
 }
 
 #app {
-  background-color: #2C3E50;
-  width: 90%;
-  margin: auto;
+  height: 100%;
 }
